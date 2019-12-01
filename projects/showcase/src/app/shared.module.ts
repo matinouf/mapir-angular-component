@@ -14,7 +14,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
+import { NgxMapboxGLModule } from 'mapir-angular-component';
 
 const Modules = [
   CommonModule,

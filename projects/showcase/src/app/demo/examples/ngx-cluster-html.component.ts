@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, OnChanges, ViewChild, SimpleChanges } from '@angular/core';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
-import { GeoJSONSourceComponent } from 'ngx-mapbox-gl';
+import { GeoJSONSourceComponent } from 'mapir-angular-component';
 
 /**
  * Remember: mgl-layer are way faster than html markers

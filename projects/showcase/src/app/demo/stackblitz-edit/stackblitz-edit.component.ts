@@ -144,7 +144,7 @@ import 'zone.js/dist/zone';
       dependencies: {
         'tslib': '*',
         'mapbox-gl': '0.52.0', // There an issue with 0.53.0
-        'ngx-mapbox-gl': '*',
+        'mapir-angular-component': '*',
         '@angular/cdk': '*',
         '@angular/material': '*',
         '@angular/animations': '*',

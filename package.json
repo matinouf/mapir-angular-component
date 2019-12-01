@@ -1,12 +1,12 @@
 {
-  "name": "ngx-mapbox-gl-srcs",
+  "name": "mapir-angular-component-srcs",
   "version": "4.2.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve showcase",
-    "build": "ng build --prod ngx-mapbox-gl",
-    "build:watch": "ng build --watch ngx-mapbox-gl",
-    "build:showcase": "ng build --prod showcase --base-href /ngx-mapbox-gl/",
+    "build": "ng build --prod mapir-angular-component",
+    "build:watch": "ng build --watch mapir-angular-component",
+    "build:showcase": "ng build --prod showcase --base-href /mapir-angular-component/",
     "publish:showcase": "ngh -d dist/showcase/",
     "test": "ng test",
     "lint": "ng lint",
@@ -17,7 +17,7 @@
   "standard-version": {
     "scripts": {
       "postbump": "yarn update-version && yarn build",
-      "precommit": "git add projects/ngx-mapbox-gl/package.json"
+      "precommit": "git add projects/mapir-angular-component/package.json"
     }
   },
   "private": true,

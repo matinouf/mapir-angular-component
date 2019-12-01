@@ -3,38 +3,38 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngx-mapbox-gl": {
-      "root": "projects/ngx-mapbox-gl",
-      "sourceRoot": "projects/ngx-mapbox-gl/src",
+    "mapir-angular-component": {
+      "root": "projects/mapir-angular-component",
+      "sourceRoot": "projects/mapir-angular-component/src",
       "projectType": "library",
       "prefix": "mgl",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/ngx-mapbox-gl/tsconfig.lib.json",
-            "project": "projects/ngx-mapbox-gl/ng-package.json"
+            "tsConfig": "projects/mapir-angular-component/tsconfig.lib.json",
+            "project": "projects/mapir-angular-component/ng-package.json"
           },
           "configurations": {
             "production": {
-              "project": "projects/ngx-mapbox-gl/ng-package.prod.json"
+              "project": "projects/mapir-angular-component/ng-package.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/ngx-mapbox-gl/src/test.ts",
-            "tsConfig": "projects/ngx-mapbox-gl/tsconfig.spec.json",
-            "karmaConfig": "projects/ngx-mapbox-gl/karma.conf.js"
+            "main": "projects/mapir-angular-component/src/test.ts",
+            "tsConfig": "projects/mapir-angular-component/tsconfig.spec.json",
+            "karmaConfig": "projects/mapir-angular-component/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/ngx-mapbox-gl/tsconfig.lib.json",
-              "projects/ngx-mapbox-gl/tsconfig.spec.json"
+              "projects/mapir-angular-component/tsconfig.lib.json",
+              "projects/mapir-angular-component/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -170,5 +170,5 @@
       }
     }
   },
-  "defaultProject": "ngx-mapbox-gl"
+  "defaultProject": "mapir-angular-component"
 }

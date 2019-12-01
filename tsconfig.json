@@ -22,8 +22,8 @@
       "dom"
     ],
     "paths": {
-      "ngx-mapbox-gl": [
-        "projects/ngx-mapbox-gl/src/public_api"
+      "mapir-angular-component": [
+        "projects/mapir-angular-component/src/public_api"
       ]
     },
     "strict": true,
