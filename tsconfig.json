@@ -24,7 +24,7 @@
     "paths": {
       "mapir-angular-component": [
         "projects/mapir-angular-component/src/public_api"
-      ]
+      ],
     },
     "strict": true,
     "skipLibCheck": true,
