@@ -26,7 +26,8 @@ import {
   SimpleChanges,
   ViewChild
 } from "@angular/core";
-import mainPackage from "./../../../package.json";
+
+// import mainPackage from "./../../../package.json";
 
 @Component({
   selector: "mgl-map",
@@ -65,9 +66,7 @@ export class MapComponent
       url: url,
       headers: {
         "x-api-key": this.apiKey,
-        "Mapir-SDK": `angular/${this.angularVersion()}-map/${
-          this.componentVersion()
-        }`
+        "Mapir-SDK": `angular/8.0.0-map/4.2.0`
       }
     };
   };
@@ -152,22 +151,22 @@ export class MapComponent
   @Output() sourceDataLoading = new EventEmitter<EventData>();
   @Output() styleImageMissing = new EventEmitter<{ id: string }>();
 
-  angularVersion() {
-    let angularversion;
-    Object.keys(mainPackage)
-      .filter(i => i.includes("pendenc"))
-      .forEach(item => {
-        if (mainPackage[item]["@angular/core"] != undefined)
-          angularversion = mainPackage[item]["@angular/core"];
-      });
-    angularversion = angularversion ? angularversion : '';
-    let dotIndex = angularversion.indexOf('.');
-    return angularversion.slice(dotIndex - 1, dotIndex + 4);
-  }
+  // angularVersion() {
+  //   let angularversion;
+  //   Object.keys(mainPackage)
+  //     .filter(i => i.includes("pendenc"))
+  //     .forEach(item => {
+  //       if (mainPackage[item]["@angular/core"] != undefined)
+  //         angularversion = mainPackage[item]["@angular/core"];
+  //     });
+  //   angularversion = angularversion ? angularversion : '';
+  //   let dotIndex = angularversion.indexOf('.');
+  //   return angularversion.slice(dotIndex - 1, dotIndex + 4);
+  // }
 
-  componentVersion() {
-    return mainPackage.version;
-  }
+  // componentVersion() {
+  //   return mainPackage.version;
+  // }
 
   get mapInstance(): Map {
     return this.MapService.mapInstance;

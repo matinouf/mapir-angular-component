@@ -14,17 +14,12 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es2015",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2017",
-      "dom"
-    ],
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2017", "dom"],
     "paths": {
       "mapir-angular-component": [
         "projects/mapir-angular-component/src/public_api"
-      ],
+      ]
     },
     "strict": true,
     "skipLibCheck": true,
@@ -35,6 +30,7 @@
       {
         "name": "typescript-tslint-plugin"
       }
-    ]
+    ],
+    "resolveJsonModule": true
   }
 }
