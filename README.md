@@ -94,6 +94,4 @@ in `app.component.html` file:
 ```
 
 
-[![Edit angular-react](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/objective-ganguly-st4od?fontsize=14)
-
 📖 [English Documentation](https://github.com/map-ir/mapir-angular-component/wiki/Documentation)
