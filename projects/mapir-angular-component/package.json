@@ -1,6 +1,6 @@
 {
   "name": "mapir-angular-component",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Angular binding of mapbox-gl-js",
   "license": "MIT",
   "repository": {

@@ -84,7 +84,7 @@ export class MapComponent
   @Input() dragPan?: boolean;
   @Input() boxZoom?: boolean;
   @Input() style: Style | string =
-    "https://stage.map.ir/vector/styles/main/mapir-xyz-style.json";
+    "https://map.ir/vector/styles/main/mapir-xyz-style.json";
   @Input() center?: LngLatLike;
   @Input() maxBounds?: LngLatBoundsLike;
   @Input() zoom?: [number];
