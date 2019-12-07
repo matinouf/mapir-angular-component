@@ -7,6 +7,18 @@
     "type": "git",
     "url": "https://github.com/map-ir/mapir-angular-component.git"
   },
+  "author": {
+    "name": "Mohammad H. Sattarian",
+    "email": "mh.sattarian@map.ir",
+    "url": "https://github.com/mhsattarian"
+  },
+  "contributors": [
+    {
+      "name": "Reyhaneh Masoumi",
+      "email": "r.masoumi@map.ir",
+      "url": "https://github.com/ReyhaneMasumi"
+    }
+  ],
   "keywords": [
     "mapbox",
     "angular",
@@ -22,7 +34,7 @@
   "peerDependencies": {
     "@angular/common": ">= 8.0.0 < 10.0.0",
     "@angular/core": ">= 8.0.0 < 10.0.0",
-    "mapbox-gl": "^1.1.0",
+    "mapbox-gl": "^1.6.0",
     "rxjs": "^6.5.0"
   },
   "dependencies": {

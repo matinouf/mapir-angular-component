@@ -1,9 +1,6 @@
 # mapir-angular-component
 
-[![Build Status](https://travis-ci.org/Wykks/mapir-angular-component.svg?branch=master)](https://travis-ci.org/Wykks/mapir-angular-component)
-[![npm version](https://img.shields.io/npm/v/mapir-angular-component.svg?style=flat)](https://www.npmjs.com/package/mapir-angular-component)
-
-Angular wrapper for [mapbox-gl-js](https://www.mapbox.com/mapbox-gl-js/api/). Expose a bunch of component meant to be simple to use for Angular.
+![Map.ir](projects/mapir-angular-component/assets/mapir1.png) Angular wrapper for [mapbox-gl-js](https://www.mapbox.com/mapbox-gl-js/api/). Expose a bunch of component meant to be simple to use for Angular.
 
 v1.X : Angular 5 & 6 (rxjs 5)
 
