@@ -1,0 +1,43 @@
+{
+  "name": "mapir-angular-component",
+  "version": "1.0.1",
+  "description": "A Angular binding of mapbox-gl-js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/map-ir/mapir-angular-component.git"
+  },
+  "author": {
+    "name": "Mohammad H. Sattarian",
+    "email": "mh.sattarian@map.ir",
+    "url": "https://github.com/mhsattarian"
+  },
+  "contributors": [
+    {
+      "name": "Reyhaneh Masoumi",
+      "email": "r.masoumi@map.ir",
+      "url": "https://github.com/ReyhaneMasumi"
+    }
+  ],
+  "keywords": [
+    "mapbox",
+    "angular",
+    "map",
+    "webgl",
+    "mapbox-gl",
+    "ngx"
+  ],
+  "bugs": {
+    "url": "https://github.com/map-ir/mapir-angular-component/issues"
+  },
+  "homepage": "https://github.com/map-ir/mapir-angular-component#readme",
+  "peerDependencies": {
+    "@angular/common": ">= 8.0.0 < 10.0.0",
+    "@angular/core": ">= 8.0.0 < 10.0.0",
+    "mapbox-gl": "^1.6.0",
+    "rxjs": "^6.5.0"
+  },
+  "dependencies": {
+    "@mapbox/mapbox-gl-geocoder": "^3.0.1"
+  }
+}

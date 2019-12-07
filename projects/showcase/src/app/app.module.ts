@@ -8,7 +8,7 @@ import { routerReducer, RouterReducerState, RouterStateSerializer, StoreRouterCo
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import 'hammerjs';
-import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
+import { NgxMapboxGLModule } from 'mapir-angular-component';
 import { environment } from '../environments/environment';
 import { DEMO_ROUTES, DemoModule } from './demo/demo.module';
 import * as fromDemo from './demo/demo.reducer';
@@ -97,8 +97,8 @@ export class AppModule {
     iconRegistry: MatIconRegistry,
     sanitizer: DomSanitizer
   ) {
-    iconRegistry.addSvgIcon('ngx-mapbox-gl', sanitizer.bypassSecurityTrustResourceUrl('assets/ngx-mapbox-gl.svg'));
-    iconRegistry.addSvgIcon('ngx-mapbox-gl-red', sanitizer.bypassSecurityTrustResourceUrl('assets/ngx-mapbox-gl-red.svg'));
+    iconRegistry.addSvgIcon('mapir-angular-component', sanitizer.bypassSecurityTrustResourceUrl('assets/mapir-angular-component.svg'));
+    iconRegistry.addSvgIcon('mapir-angular-component-red', sanitizer.bypassSecurityTrustResourceUrl('assets/mapir-angular-component-red.svg'));
     iconRegistry.addSvgIcon('github', sanitizer.bypassSecurityTrustResourceUrl('assets/github.svg'));
   }
 }

@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-import { MglResizeEventEmitter } from 'ngx-mapbox-gl';
+import { MglResizeEventEmitter } from 'mapir-angular-component';
 import { SharedModule } from '../shared.module';
 import { DemoFileLoaderService } from './demo-file-loader.service';
 import { DemoIndexComponent } from './demo-index.component';

@@ -13,7 +13,7 @@ import { Component } from '@angular/core';
       mglAttribution
       position="bottom-right"
       [customAttribution]="[
-        '<a href=&quot;https://github.com/Wykks/ngx-mapbox-gl&quot; target=&quot;_blank&quot;>Maps made awesome in Angular</a>',
+        '<a href=&quot;https://github.com/map-ir/mapir-angular-component&quot; target=&quot;_blank&quot;>Maps made awesome in Angular</a>',
         'Hello World'
       ]"
     ></mgl-control>

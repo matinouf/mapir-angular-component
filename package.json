@@ -1,12 +1,14 @@
 {
-  "name": "ngx-mapbox-gl-srcs",
-  "version": "4.2.0",
+  "name": "mapir-angular-component-srcs",
+  "version": "1.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve showcase",
-    "build": "ng build --prod ngx-mapbox-gl",
-    "build:watch": "ng build --watch ngx-mapbox-gl",
-    "build:showcase": "ng build --prod showcase --base-href /ngx-mapbox-gl/",
+    "start:simple": "ng serve simple",
+    "build": "ng build --prod mapir-angular-component",
+    "build:watch": "ng build --watch mapir-angular-component",
+    "build:showcase": "ng build --prod showcase --base-href /mapir-angular-component/",
+    "build:simple": "ng build --prod simple --base-href /mapir-angular-component/",
     "publish:showcase": "ngh -d dist/showcase/",
     "test": "ng test",
     "lint": "ng lint",
@@ -17,11 +19,20 @@
   "standard-version": {
     "scripts": {
       "postbump": "yarn update-version && yarn build",
-      "precommit": "git add projects/ngx-mapbox-gl/package.json"
+      "precommit": "git add projects/mapir-angular-component/package.json"
     }
   },
   "private": true,
   "dependencies": {
+    "hammerjs": "^2.0.8",
+    "lodash-es": "^4.17.11",
+    "mapbox-gl": "^1.6.0",
+    "ngx-md": "^8.0.0",
+    "rxjs": "^6.5.2",
+    "scroll-into-view-if-needed": "^2.2.20",
+    "tslib": "^1.10.0"
+  },
+  "devDependencies": {
     "@angular/animations": "^8.1.0",
     "@angular/cdk": "^8.0.2",
     "@angular/common": "^8.1.0",
@@ -38,15 +49,7 @@
     "@ngrx/store": "^8.0.1",
     "@ngrx/store-devtools": "^8.0.1",
     "@stackblitz/sdk": "^1.3.0",
-    "hammerjs": "^2.0.8",
-    "lodash-es": "^4.17.11",
-    "mapbox-gl": "^1.1.0",
-    "ngx-md": "^8.0.0",
-    "rxjs": "^6.5.2",
-    "scroll-into-view-if-needed": "^2.2.20",
-    "zone.js": "~0.9.1"
-  },
-  "devDependencies": {
+    "zone.js": "~0.9.1",
     "@angular-devkit/build-angular": "~0.803.0",
     "@angular-devkit/build-ng-packagr": "~0.803.0",
     "@angular/cli": "^8.3.0",
@@ -55,7 +58,7 @@
     "@types/jasmine": "^3.3.13",
     "@types/jasminewd2": "^2.0.6",
     "@types/lodash-es": "^4.17.3",
-    "@types/mapbox-gl": "^1.5.2",
+    "@types/mapbox-gl": "^1.6.0",
     "@types/node": "^12.0.11",
     "angular-cli-ghpages": "^0.6.0",
     "codelyzer": "^5.1.0",

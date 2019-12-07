@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
-import { MglResizeEventEmitter } from 'ngx-mapbox-gl';
+import { MglResizeEventEmitter } from 'mapir-angular-component';
 import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { DemoActionTypes } from './demo.actions';

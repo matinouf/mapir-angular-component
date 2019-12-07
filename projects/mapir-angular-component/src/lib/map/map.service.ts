@@ -491,6 +491,12 @@ export class MapService {
       });
     this.mapInstance = new MapboxGl.Map(options);
 
+    // mapir: setRTLTextPlugin
+    MapboxGl.setRTLTextPlugin(
+      "https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.3/mapbox-gl-rtl-text.js",
+      ()=>{}
+    );
+
     const isIEorEdge = window && /msie\s|trident\/|edge\//i.test(window.navigator.userAgent);
     if (isIEorEdge) {
       this.mapInstance.setStyle(options.style!);
@@ -498,6 +504,7 @@ export class MapService {
 
     const subChanges = this.zone.onMicrotaskEmpty
       .subscribe(() => this.applyChanges());
+
     if (this.MglResizeEventEmitter) {
       const subResize = this.MglResizeEventEmitter.resizeEvent.subscribe(() => {
         this.mapInstance.resize();

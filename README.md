@@ -93,5 +93,8 @@ in `app.component.html` file:
 ></mgl-map>
 ```
 
+[![Edit stackblitz](./assets/stackblitz.png)](https://stackblitz.com/edit/angular-27cqh9)
+
+[![Edit vibrant-sound-obw3p](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/vibrant-sound-obw3p?fontsize=14&hidenavigation=1&theme=dark)
 
 📖 [English Documentation](https://github.com/map-ir/mapir-angular-component/wiki/Documentation)

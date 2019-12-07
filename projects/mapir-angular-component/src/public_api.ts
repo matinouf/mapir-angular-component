@@ -1,13 +1,13 @@
 /*
- * Public API Surface of ngx-mapbox-gl
+ * Public API Surface of mapir-angular-component
  */
 
-export * from './lib/ngx-mapbox-gl.module';
+export * from './lib/mapir-angular-component.module';
 
 // Expose control component to allow custom directives
 export * from './lib/control/control.component';
 
-// Expose MapService for ngx-mapbox-gl extensions
+// Expose MapService for mapir-angular-component extensions
 export * from './lib/map/map.service';
 export * from './lib/map/map.component';
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MapImageData } from 'ngx-mapbox-gl';
+import { MapImageData } from 'mapir-angular-component';
 
 @Component({
   selector: 'showcase-demo',

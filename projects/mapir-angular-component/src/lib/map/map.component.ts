@@ -10,9 +10,9 @@ import {
   MapTouchEvent,
   PointLike,
   Style
-} from 'mapbox-gl';
-import { MapService, MovingOptions } from './map.service';
-import { MapEvent } from './map.types';
+} from "mapbox-gl";
+import { MapService, MovingOptions } from "./map.service";
+import { MapEvent } from "./map.types";
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
@@ -24,27 +24,20 @@ import {
   OnDestroy,
   Output,
   SimpleChanges,
-  ViewChild,
-} from '@angular/core';
+  ViewChild
+} from "@angular/core";
+
+// import mainPackage from "./../../../package.json";
 
 @Component({
-  selector: 'mgl-map',
-  template: '<div #container></div>',
-  styles: [`
-  :host {
-    display: block;
-  }
-  div {
-    height: 100%;
-    width: 100%;
-  }
-  `],
-  providers: [
-    MapService
-  ],
+  selector: "mgl-map",
+  templateUrl: './map.component.html',
+  styleUrls: ['./map.component.css'],
+  providers: [MapService],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MapComponent implements OnChanges, OnDestroy, AfterViewInit, MapEvent {
+export class MapComponent
+  implements OnChanges, OnDestroy, AfterViewInit, MapEvent {
   /* Init inputs */
   @Input() accessToken?: string;
   @Input() customMapboxApiUrl?: string;
@@ -57,13 +50,26 @@ export class MapComponent implements OnChanges, OnDestroy, AfterViewInit, MapEve
   @Input() pitchWithRotate?: boolean;
   @Input() clickTolerance?: number;
   @Input() attributionControl?: boolean;
-  @Input() logoPosition?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+  @Input() logoPosition?:
+    | "top-left"
+    | "top-right"
+    | "bottom-left"
+    | "bottom-right";
   @Input() maxTileCacheSize?: number;
   @Input() localIdeographFontFamily?: string;
   @Input() preserveDrawingBuffer?: boolean;
   @Input() renderWorldCopies?: boolean;
   @Input() trackResize?: boolean;
-  @Input() transformRequest?: Function;
+  @Input() apiKey?: string;
+  @Input() transformRequest?: Function = (url: any) => {
+    return {
+      url: url,
+      headers: {
+        "x-api-key": this.apiKey,
+        "Mapir-SDK": `angular/8.0.0-map/4.2.0`
+      }
+    };
+  };
   @Input() bounds?: LngLatBoundsLike; // Use fitBounds for dynamic input
   @Input() antialias?: boolean;
 
@@ -77,7 +83,8 @@ export class MapComponent implements OnChanges, OnDestroy, AfterViewInit, MapEve
   @Input() keyboard?: boolean;
   @Input() dragPan?: boolean;
   @Input() boxZoom?: boolean;
-  @Input() style: Style | string;
+  @Input() style: Style | string =
+    "https://map.ir/vector/styles/main/mapir-xyz-style.json";
   @Input() center?: LngLatLike;
   @Input() maxBounds?: LngLatBoundsLike;
   @Input() zoom?: [number];
@@ -85,8 +92,8 @@ export class MapComponent implements OnChanges, OnDestroy, AfterViewInit, MapEve
   @Input() pitch?: [number];
   @Input() fitBoundsOptions?: FitBoundsOptions; // First value goes to options.fitBoundsOptions. Subsequents changes are passed to fitBounds
 
-  /* Added by ngx-mapbox-gl */
-  @Input() movingMethod: 'jumpTo' | 'easeTo' | 'flyTo' = 'flyTo';
+  /* Added by mapir-angular-component */
+  @Input() movingMethod: "jumpTo" | "easeTo" | "flyTo" = "flyTo";
   @Input() movingOptions?: MovingOptions;
   // => First value is a alias to bounds input (since mapbox 0.53.0). Subsequents changes are passed to fitBounds
   @Input() fitBounds?: LngLatBoundsLike;
@@ -142,17 +149,32 @@ export class MapComponent implements OnChanges, OnDestroy, AfterViewInit, MapEve
   @Output() dataLoading = new EventEmitter<EventData>();
   @Output() styleDataLoading = new EventEmitter<EventData>();
   @Output() sourceDataLoading = new EventEmitter<EventData>();
-  @Output() styleImageMissing = new EventEmitter<{id: string}>();
+  @Output() styleImageMissing = new EventEmitter<{ id: string }>();
+
+  // angularVersion() {
+  //   let angularversion;
+  //   Object.keys(mainPackage)
+  //     .filter(i => i.includes("pendenc"))
+  //     .forEach(item => {
+  //       if (mainPackage[item]["@angular/core"] != undefined)
+  //         angularversion = mainPackage[item]["@angular/core"];
+  //     });
+  //   angularversion = angularversion ? angularversion : '';
+  //   let dotIndex = angularversion.indexOf('.');
+  //   return angularversion.slice(dotIndex - 1, dotIndex + 4);
+  // }
+
+  // componentVersion() {
+  //   return mainPackage.version;
+  // }
 
   get mapInstance(): Map {
     return this.MapService.mapInstance;
   }
 
-  @ViewChild('container', { static: true }) mapContainer: ElementRef;
+  @ViewChild("container", { static: true }) mapContainer: ElementRef;
 
-  constructor(
-    private MapService: MapService
-  ) { }
+  constructor(private MapService: MapService) {}
 
   ngAfterViewInit() {
     this.MapService.setup({
@@ -200,6 +222,16 @@ export class MapComponent implements OnChanges, OnDestroy, AfterViewInit, MapEve
     if (this.cursorStyle) {
       this.MapService.changeCanvasCursor(this.cursorStyle);
     }
+
+    // let holder = document.createElement("div");
+    // holder.className = "holder-logo";
+    // let link = document.createElement("a");
+    // link.href = "http://corp.map.ir/";
+    // link.target = "_blank";
+    // link.className = "map-logo";
+
+    // holder.appendChild(link);
+    // this.mapContainer.nativeElement.appendChild(holder);
   }
 
   ngOnDestroy() {
@@ -224,10 +256,14 @@ export class MapComponent implements OnChanges, OnDestroy, AfterViewInit, MapEve
       this.MapService.updateDragRotate(changes.dragRotate.currentValue);
     }
     if (changes.touchZoomRotate && !changes.touchZoomRotate.isFirstChange()) {
-      this.MapService.updateTouchZoomRotate(changes.touchZoomRotate.currentValue);
+      this.MapService.updateTouchZoomRotate(
+        changes.touchZoomRotate.currentValue
+      );
     }
     if (changes.doubleClickZoom && !changes.doubleClickZoom.isFirstChange()) {
-      this.MapService.updateDoubleClickZoom(changes.doubleClickZoom.currentValue);
+      this.MapService.updateDoubleClickZoom(
+        changes.doubleClickZoom.currentValue
+      );
     }
     if (changes.keyboard && !changes.keyboard.isFirstChange()) {
       this.MapService.updateKeyboard(changes.keyboard.currentValue);
@@ -244,12 +280,27 @@ export class MapComponent implements OnChanges, OnDestroy, AfterViewInit, MapEve
     if (changes.maxBounds && !changes.maxBounds.isFirstChange()) {
       this.MapService.updateMaxBounds(changes.maxBounds.currentValue);
     }
-    if (changes.fitBounds && changes.fitBounds.currentValue && !changes.fitBounds.isFirstChange()) {
-      this.MapService.fitBounds(changes.fitBounds.currentValue, this.fitBoundsOptions);
+    if (
+      changes.fitBounds &&
+      changes.fitBounds.currentValue &&
+      !changes.fitBounds.isFirstChange()
+    ) {
+      this.MapService.fitBounds(
+        changes.fitBounds.currentValue,
+        this.fitBoundsOptions
+      );
     }
-    if (changes.fitScreenCoordinates && changes.fitScreenCoordinates.currentValue) {
-      if ((this.center || this.zoom || this.pitch || this.fitBounds) && changes.fitScreenCoordinates.isFirstChange()) {
-        console.warn('[ngx-mapbox-gl] center / zoom / pitch / fitBounds inputs are being overridden by fitScreenCoordinates input');
+    if (
+      changes.fitScreenCoordinates &&
+      changes.fitScreenCoordinates.currentValue
+    ) {
+      if (
+        (this.center || this.zoom || this.pitch || this.fitBounds) &&
+        changes.fitScreenCoordinates.isFirstChange()
+      ) {
+        console.warn(
+          "[mapir-angular-component] center / zoom / pitch / fitBounds inputs are being overridden by fitScreenCoordinates input"
+        );
       }
       this.MapService.fitScreenCoordinates(
         changes.fitScreenCoordinates.currentValue,
@@ -259,15 +310,20 @@ export class MapComponent implements OnChanges, OnDestroy, AfterViewInit, MapEve
     }
     if (
       this.centerWithPanTo &&
-      changes.center && !changes.center.isFirstChange() &&
-      !changes.zoom && !changes.bearing && !changes.pitch
+      changes.center &&
+      !changes.center.isFirstChange() &&
+      !changes.zoom &&
+      !changes.bearing &&
+      !changes.pitch
     ) {
       this.MapService.panTo(this.center!, this.panToOptions);
     } else if (
-      changes.center && !changes.center.isFirstChange() ||
-      changes.zoom && !changes.zoom.isFirstChange() ||
-      (changes.bearing && !changes.bearing.isFirstChange() && !changes.fitScreenCoordinates) ||
-      changes.pitch && !changes.pitch.isFirstChange()
+      (changes.center && !changes.center.isFirstChange()) ||
+      (changes.zoom && !changes.zoom.isFirstChange()) ||
+      (changes.bearing &&
+        !changes.bearing.isFirstChange() &&
+        !changes.fitScreenCoordinates) ||
+      (changes.pitch && !changes.pitch.isFirstChange())
     ) {
       this.MapService.move(
         this.movingMethod,
