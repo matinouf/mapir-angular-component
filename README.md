@@ -95,6 +95,6 @@ in `app.component.html` file:
 
 [![Edit stackblitz](./assets/stackblitz.png)](https://stackblitz.com/edit/mapir-angular-component-test)
 
-[![Edit vibrant-sound-obw3p](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/vibrant-sound-obw3p?fontsize=14&hidenavigation=1&theme=dark)
+[![Edit mapir-angular-component-test](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/vibrant-sound-obw3p?fontsize=14&hidenavigation=1&theme=dark)
 
 📖 [English Documentation](https://github.com/map-ir/mapir-angular-component/wiki/Documentation)
