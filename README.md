@@ -74,7 +74,7 @@ in `app.component.ts` file:
 })
 export class AppComponent {
   title = 'mapir-angular-test';
-  center:Array<number> = [35.712706, 51.367918];
+  center:Array<number> = [51.367918, 35.712706];
   apiKey:string = "<YOUR API KEY>";
 }
 ```
