@@ -66,7 +66,7 @@ export class AppModule {}
 
 in `app.component.ts` file:
 
-```diff
+```js
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -75,7 +75,7 @@ in `app.component.ts` file:
 export class AppComponent {
   title = 'mapir-angular-test';
   center:Array<number> = [35.712706, 51.367918];
-+  apiKey:string = "<YOUR API KEY>";
+  apiKey:string = "<YOUR API KEY>";
 }
 ```
 
@@ -84,17 +84,44 @@ export class AppComponent {
 in `app.component.html` file:
 
 ```html
-<mgl-map
-  [zoom]="[2]"
-  [center]="center"
-  [centerWithPanTo]="true"
-  [interactive]="true"
-  [apiKey]="apiKey"
-></mgl-map>
+<div id="container">
+  <mgl-map
+    [zoom]="[5]"
+    [center]="center"
+    [centerWithPanTo]="true"
+    [interactive]="true"
+    [apiKey]="apiKey"
+  ></mgl-map>
+</div>
 ```
+
+in `app.component.css` file:
+
+```css
+.map-wrapper {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.map-wrapper .mapboxgl-map {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+#container, .mapir-wrapper {
+  height: 100%;
+  width: 100%;
+}
+```
+
+
 
 [![Edit stackblitz](./assets/stackblitz.png)](https://stackblitz.com/edit/mapir-angular-component-test)
 
 [![Edit mapir-angular-component-test](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/vibrant-sound-obw3p?fontsize=14&hidenavigation=1&theme=dark)
 
-📖 [English Documentation](https://github.com/map-ir/mapir-angular-component/wiki/Documentation)
+📖 [English Documentation](https://github.com/map-ir/mapir-angular-component/wiki/Documentation) (coming soon)
