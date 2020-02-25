@@ -39,7 +39,7 @@ Or in global css (called styles.css for example in angular-cli)
 
 ### Add Polyfill
 
-Add this in your polyfill.ts file (Wykks/ngx-mapbox-gl/issues/136#issuecomment-496224634):
+Add this in your polyfill.ts file ([discussion](https://github.com/Wykks/ngx-mapbox-gl/issues/136#issuecomment-496224634)):
 
 ```ts
 (window as any).global = window;
