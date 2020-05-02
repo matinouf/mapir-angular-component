@@ -179,6 +179,7 @@ export class MapComponent
   ngAfterViewInit() {
     this.MapService.setup({
       accessToken: this.accessToken,
+      apiKey: this.apiKey,
       customMapboxApiUrl: this.customMapboxApiUrl,
       mapOptions: {
         container: this.mapContainer.nativeElement,

@@ -14,6 +14,7 @@ export abstract class MglResizeEventEmitter {
 
 export interface SetupMap {
   accessToken?: string;
+  apiKey?: string;
   customMapboxApiUrl?: string;
   mapOptions: any; // MapboxGl.MapboxOptions
   mapEvents: MapEvent;
@@ -85,6 +86,7 @@ export class MapService {
 
   setup(options: SetupMap) {
     // Need onStable to wait for a potential @angular/route transition to end
+    this.sendLoadEvent(options.apiKey);
     this.zone.onStable.pipe(first()).subscribe(() => {
       // Workaround rollup issue
       this.assign(MapboxGl, 'accessToken', options.accessToken || this.MAPBOX_API_KEY);
@@ -483,14 +485,17 @@ export class MapService {
     });
   }
 
-  private sendLoadEvent (): Observable<any> {
-    return this._http.post<any>('https://map.ir/shiveh/load', '', {
-      headers: new HttpHeaders({
-        'Accept': 'text/plain',
-        'Content-Type': 'text/plain'
-      }),
-      'responseType': 'text'
-    });
+  private sendLoadEvent (apiKey):void {
+    fetch(`http://map.ir/vector/load?x-api-key=${apiKey}`, {
+        method: "POST",
+        redirect: 'follow'
+      }).then(() => {
+        console.log(
+          "%c Map.ir %c load Event ",
+          "background-color: #ff5252; color: white;",
+          "background-color: black; color: white;"
+        );
+      }).catch(err => console.error(err));
   }
 
   private createMap(options: MapboxGl.MapboxOptions) {
@@ -509,8 +514,6 @@ export class MapService {
       "https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.3/mapbox-gl-rtl-text.js",
       ()=>{}
     );
-
-    this.sendLoadEvent().subscribe(response => console.log('%c Map.ir %c load Event ', 'background-color: #ff5252; color: white;', 'background-color: black; color: white;'));
 
     const isIEorEdge = window && /msie\s|trident\/|edge\//i.test(window.navigator.userAgent);
     if (isIEorEdge) {
