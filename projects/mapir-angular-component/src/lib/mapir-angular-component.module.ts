@@ -23,9 +23,12 @@ import { RasterSourceComponent } from './source/raster-source.component';
 import { VectorSourceComponent } from './source/vector-source.component';
 import { VideoSourceComponent } from './source/video-source.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    HttpClientModule
   ],
   declarations: [
     MapComponent,

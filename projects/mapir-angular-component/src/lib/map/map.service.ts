@@ -3,6 +3,8 @@ import * as MapboxGl from 'mapbox-gl';
 import { AsyncSubject, Observable, Subscription } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { MapEvent, MapImageData, MapImageOptions } from './map.types';
+import { HttpParams, HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 
 export const MAPBOX_API_KEY = new InjectionToken('MapboxApiKey');
 
@@ -73,6 +75,7 @@ export class MapService {
 
   constructor(
     private zone: NgZone,
+    private _http: HttpClient,
     @Optional() @Inject(MAPBOX_API_KEY) private readonly MAPBOX_API_KEY: string,
     @Optional() private readonly MglResizeEventEmitter: MglResizeEventEmitter
   ) {
@@ -480,6 +483,16 @@ export class MapService {
     });
   }
 
+  private sendLoadEvent (): Observable<any> {
+    return this._http.post<any>('https://map.ir/shiveh/load', '', {
+      headers: new HttpHeaders({
+        'Accept': 'text/plain',
+        'Content-Type': 'text/plain'
+      }),
+      'responseType': 'text'
+    });
+  }
+
   private createMap(options: MapboxGl.MapboxOptions) {
     NgZone.assertNotInAngularZone();
     Object.keys(options)
@@ -496,6 +509,8 @@ export class MapService {
       "https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.3/mapbox-gl-rtl-text.js",
       ()=>{}
     );
+
+    this.sendLoadEvent().subscribe(response => console.log('%c Map.ir %c load Event ', 'background-color: #ff5252; color: white;', 'background-color: black; color: white;'));
 
     const isIEorEdge = window && /msie\s|trident\/|edge\//i.test(window.navigator.userAgent);
     if (isIEorEdge) {
