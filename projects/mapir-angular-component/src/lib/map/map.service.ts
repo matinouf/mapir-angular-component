@@ -3,8 +3,6 @@ import * as MapboxGl from 'mapbox-gl';
 import { AsyncSubject, Observable, Subscription } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { MapEvent, MapImageData, MapImageOptions } from './map.types';
-import { HttpParams, HttpClient, HttpHeaders } from '@angular/common/http';
-import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 
 export const MAPBOX_API_KEY = new InjectionToken('MapboxApiKey');
 
@@ -76,7 +74,6 @@ export class MapService {
 
   constructor(
     private zone: NgZone,
-    private _http: HttpClient,
     @Optional() @Inject(MAPBOX_API_KEY) private readonly MAPBOX_API_KEY: string,
     @Optional() private readonly MglResizeEventEmitter: MglResizeEventEmitter
   ) {
@@ -485,7 +482,7 @@ export class MapService {
     });
   }
 
-  private sendLoadEvent (apiKey):void {
+  private sendLoadEvent (apiKey: String):void {
     fetch(`http://map.ir/vector/load?x-api-key=${apiKey}`, {
         method: "POST",
         redirect: 'follow'
