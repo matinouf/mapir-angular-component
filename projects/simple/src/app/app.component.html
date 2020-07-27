@@ -5,5 +5,23 @@
     [centerWithPanTo]="true"
     [interactive]="true"
     [apiKey]="apiKey"
-  ></mgl-map>
+    (click)="clicked($event)"
+  >
+    <mgl-marker
+      [lngLat]="markerPosition"
+      [draggable]="true"
+      (dragEnd)="dragged($event)"
+      anchor="top"
+    >
+    </mgl-marker>
+
+    <mgl-popup
+      [lngLat]="markerPosition"
+      anchor="bottom"
+      offset="10px"
+      [closeOnClick]="false"
+    >
+      <b>Hello world !</b>
+    </mgl-popup>
+  </mgl-map>
 </div>
