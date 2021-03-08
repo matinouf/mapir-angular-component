@@ -9,7 +9,7 @@
 ## Installation
 
 ```bash
-npm i mapir-angular-component mapbox-gl
+npm i mapir-angular-component mapbox-gl@1.13
 ```
 
 If using typescript, add mapbox-gl types:
